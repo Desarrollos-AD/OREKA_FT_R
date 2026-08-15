@@ -1,0 +1,79 @@
+// -----------------------------------------------------------------------------
+// Fichas de diseño (design tokens). El naranja y el dorado son los valores
+// EXACTOS tomados del panel de Colores de Figma (nodo de la página de
+// Servicios: FF5D11 y A67C52). El resto de la paleta (carbón, hueso) sigue
+// siendo una aproximación visual — ajustar si se confirman contra Variables.
+// -----------------------------------------------------------------------------
+
+// Color -----------------------------------------------------------------------
+$color-carbon-900: #141312;
+$color-carbon-800: #1c1a18;
+$color-carbon-700: #2a2724;
+$color-carbon-600: #3c3733;
+
+$color-hueso: #f7f5f1;
+$color-blanco: #ffffff;
+
+$color-naranja-600: #ff5d11; // FF5D11 exacto de Figma
+$color-naranja-500: #ff7a3d;
+$color-naranja-400: #ff9a68;
+
+$color-oro-600: #8a6640;
+$color-oro-500: #a67c52; // A67C52 exacto de Figma
+$color-oro-300: #c9a67d;
+
+$color-texto-primario: $color-carbon-800;
+$color-texto-secundario: rgba($color-carbon-800, 0.68);
+$color-texto-invertido: $color-hueso;
+$color-texto-invertido-tenue: rgba($color-hueso, 0.7);
+
+$color-borde-claro: rgba($color-carbon-800, 0.12);
+$color-borde-oscuro: rgba($color-hueso, 0.14);
+
+// Tipografía --------------------------------------------------------------
+$fuente-titular: 'Fraunces Variable', 'Fraunces', 'Iowan Old Style', serif;
+$fuente-cuerpo: 'Manrope Variable', 'Manrope', 'Segoe UI', sans-serif;
+
+// Espaciado (escala base 4px) -----------------------------------------------
+$espacio-1: 0.25rem;
+$espacio-2: 0.5rem;
+$espacio-3: 0.75rem;
+$espacio-4: 1rem;
+$espacio-5: 1.5rem;
+$espacio-6: 2rem;
+$espacio-7: 3rem;
+$espacio-8: 4rem;
+$espacio-9: 6rem;
+$espacio-10: 8rem;
+
+// Radios y sombras ------------------------------------------------------------
+$radio-s: 0.25rem;
+$radio-m: 0.5rem;
+$radio-l: 1rem;
+$radio-completo: 999px;
+
+$sombra-suave: 0 1px 2px rgba(20, 19, 18, 0.06), 0 8px 24px rgba(20, 19, 18, 0.06);
+$sombra-media: 0 4px 12px rgba(20, 19, 18, 0.1), 0 16px 40px rgba(20, 19, 18, 0.12);
+$sombra-alta: 0 12px 32px rgba(20, 19, 18, 0.18), 0 24px 64px rgba(20, 19, 18, 0.2);
+
+// Contenedor y capas -----------------------------------------------------------
+$ancho-contenedor: 76rem;
+$ancho-contenedor-angosto: 46rem;
+
+$z-fondo-3d: 0;
+$z-contenido: 1;
+$z-encabezado: 50;
+$z-superpuesto: 100;
+
+// Movimiento --------------------------------------------------------------
+$duracion-rapida: 0.2s;
+$duracion-media: 0.45s;
+$duracion-lenta: 0.9s;
+$easing-salida: cubic-bezier(0.16, 1, 0.3, 1);
+$easing-entrada-salida: cubic-bezier(0.65, 0, 0.35, 1);
+
+// Quiebres (breakpoints) --------------------------------------------------
+$quiebre-sm: 36rem; // 576px
+$quiebre-md: 48rem; // 768px
+$quiebre-lg: 64rem; // 1024px
+$quiebre-xl: 80rem; // 1280px

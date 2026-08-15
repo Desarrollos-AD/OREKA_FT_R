@@ -1,0 +1,70 @@
+@use 'sass:map';
+@use 'variables' as v;
+
+// Contenedor centrado con padding lateral fluido
+@mixin contenedor($ancho: v.$ancho-contenedor) {
+  width: min(100% - #{v.$espacio-6}, #{$ancho});
+  margin-inline: auto;
+}
+
+// Quiebres mobile-first
+@mixin desde($quiebre) {
+  @media (min-width: $quiebre) {
+    @content;
+  }
+}
+
+@mixin hasta($quiebre) {
+  @media (max-width: ($quiebre - 0.01rem)) {
+    @content;
+  }
+}
+
+// Oculto visualmente pero accesible para lectores de pantalla
+@mixin solo-lectores-pantalla {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Anillo de foco consistente (accesibilidad de teclado)
+@mixin anillo-foco($color: v.$color-naranja-500) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 3px;
+  }
+}
+
+// Tamaño de fuente fluido entre dos quiebres
+@mixin tipo-fluida($minimo, $maximo, $desde: v.$quiebre-sm, $hasta: v.$quiebre-xl) {
+  $pendiente: calc(($maximo - $minimo) / ($hasta - $desde));
+  $interseccion: calc($minimo - $pendiente * $desde);
+  font-size: clamp(#{$minimo}, #{$interseccion} + #{$pendiente} * 100vw, #{$maximo});
+}
+
+// Trunca texto a n líneas
+@mixin recortar-lineas($n) {
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Envuelve reglas que solo deben aplicar cuando el usuario NO pidió reducir movimiento
+@mixin con-movimiento {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+@mixin movimiento-reducido {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

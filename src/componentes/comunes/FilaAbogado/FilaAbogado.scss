@@ -1,0 +1,103 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.fila-abogado {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: v.$espacio-8;
+  align-items: center;
+  padding-block: v.$espacio-8;
+
+  & + & {
+    border-top: 1px solid v.$color-borde-oscuro;
+  }
+
+  @include m.hasta(v.$quiebre-md) {
+    grid-template-columns: 1fr;
+    gap: v.$espacio-5;
+    padding-block: v.$espacio-6;
+  }
+
+  &__panel {
+    position: relative;
+    order: 1;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: v.$radio-l;
+    background: radial-gradient(ellipse at 50% 40%, rgba(v.$color-oro-500, 0.18), transparent 65%),
+      linear-gradient(150deg, v.$color-carbon-800, v.$color-carbon-900 70%);
+    box-shadow: v.$sombra-media;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: v.$espacio-4;
+      left: v.$espacio-4;
+      width: 4.5rem;
+      height: 4.5rem;
+      background-image: radial-gradient(v.$color-naranja-600 1.5px, transparent 1.5px);
+      background-size: 10px 10px;
+      opacity: 0.5;
+    }
+  }
+
+  &__iniciales {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    font-family: v.$fuente-titular;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: rgba(v.$color-hueso, 0.9);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  &__texto {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: v.$espacio-2;
+  }
+
+  &__nombre {
+    @include m.tipo-fluida(1.4rem, 1.8rem);
+    color: v.$color-texto-invertido;
+  }
+
+  &__rol {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: v.$color-oro-300;
+  }
+
+  &__resumen {
+    margin-top: v.$espacio-2;
+    color: v.$color-texto-invertido-tenue;
+    line-height: 1.65;
+  }
+
+  &__materias {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: v.$color-naranja-400;
+  }
+
+  &--invertida &__panel {
+    order: 2;
+
+    &::before {
+      left: auto;
+      right: v.$espacio-4;
+    }
+  }
+
+  &--invertida &__texto {
+    order: 1;
+  }
+}

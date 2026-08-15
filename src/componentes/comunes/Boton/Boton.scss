@@ -1,0 +1,82 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.boton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$espacio-2;
+  padding: 0.85em 1.7em;
+  border-radius: v.$radio-completo;
+  font-family: v.$fuente-cuerpo;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform v.$duracion-rapida v.$easing-salida,
+    box-shadow v.$duracion-rapida v.$easing-salida,
+    color v.$duracion-rapida v.$easing-salida,
+    border-color v.$duracion-rapida v.$easing-salida;
+
+  @include m.anillo-foco();
+
+  &__etiqueta {
+    position: relative;
+  }
+
+  &--primario {
+    background-color: v.$color-naranja-600;
+    color: v.$color-hueso;
+    box-shadow: v.$sombra-suave;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: v.$sombra-media;
+      background-color: v.$color-naranja-500;
+    }
+  }
+
+  &--fantasma {
+    background-color: transparent;
+    color: v.$color-texto-primario;
+    border: 1.5px solid v.$color-borde-claro;
+
+    &:hover {
+      border-color: v.$color-naranja-600;
+      color: v.$color-naranja-600;
+    }
+  }
+
+  &--enlace {
+    padding: 0;
+    border-radius: 0;
+    color: v.$color-naranja-600;
+
+    .boton__etiqueta {
+      padding-bottom: 0.15em;
+      border-bottom: 1.5px solid currentColor;
+    }
+
+    &:hover {
+      color: v.$color-naranja-500;
+    }
+  }
+
+  &--invertido.boton--fantasma {
+    color: v.$color-texto-invertido;
+    border-color: v.$color-borde-oscuro;
+
+    &:hover {
+      border-color: v.$color-oro-300;
+      color: v.$color-oro-300;
+    }
+  }
+
+  &--invertido.boton--enlace {
+    color: v.$color-oro-300;
+  }
+}

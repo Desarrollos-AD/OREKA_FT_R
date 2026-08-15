@@ -1,0 +1,60 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+// Las hojas de estilo de las tipografías variables (Fraunces/Manrope) se
+// importan como efecto secundario en src/estilos/fuentes.js, no acá: son
+// archivos .css sueltos dentro de node_modules y Sass no resuelve
+// especificadores "bare" de paquetes de forma confiable. Ver ese archivo.
+
+// Etiqueta pequeña en versalitas naranjas, usada como "epígrafe" antes de un
+// título de sección (p. ej. "ÁREAS DE PRÁCTICA" antes de "Materias que cubrimos").
+.u-epigrafe {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$espacio-2;
+  font-family: v.$fuente-cuerpo;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: v.$color-naranja-600;
+
+  &::before {
+    content: '';
+    width: 1.5rem;
+    height: 2px;
+    background-color: currentColor;
+  }
+}
+
+.u-titulo-hero {
+  @include m.tipo-fluida(2.75rem, 5rem);
+  font-family: v.$fuente-titular;
+  font-weight: 480;
+  font-optical-sizing: auto;
+  letter-spacing: -0.01em;
+}
+
+.u-titulo-seccion {
+  @include m.tipo-fluida(2rem, 3.25rem);
+  font-family: v.$fuente-titular;
+  font-weight: 480;
+  letter-spacing: -0.01em;
+}
+
+.u-titulo-tarjeta {
+  @include m.tipo-fluida(1.15rem, 1.4rem);
+  font-family: v.$fuente-titular;
+  font-weight: 520;
+}
+
+.u-parrafo-guia {
+  @include m.tipo-fluida(1.05rem, 1.25rem);
+  color: v.$color-texto-secundario;
+  max-width: 40rem;
+  line-height: 1.6;
+}
+
+.u-parrafo-guia--invertido {
+  color: v.$color-texto-invertido-tenue;
+}

@@ -1,0 +1,207 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.encabezado {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: v.$z-encabezado;
+  color: v.$color-texto-invertido;
+  transition: background-color v.$duracion-media v.$easing-salida, box-shadow v.$duracion-media v.$easing-salida;
+
+  &--con-fondo {
+    background-color: rgba(v.$color-carbon-900, 0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: v.$sombra-suave;
+
+    .encabezado__franja {
+      max-height: 0;
+      opacity: 0;
+      padding-block: 0;
+      border-bottom-color: transparent;
+    }
+  }
+
+  &__franja {
+    background-color: v.$color-carbon-900;
+    max-height: 3rem;
+    overflow: hidden;
+    border-bottom: 1px solid v.$color-borde-oscuro;
+    transition: max-height v.$duracion-media v.$easing-salida, opacity v.$duracion-media v.$easing-salida,
+      padding-block v.$duracion-media v.$easing-salida;
+
+    @include m.hasta(v.$quiebre-md) {
+      display: none;
+    }
+  }
+
+  &__franja-interior {
+    @include m.contenedor();
+    display: flex;
+    align-items: center;
+    gap: v.$espacio-6;
+    padding-block: v.$espacio-2;
+    font-size: 0.8rem;
+    color: v.$color-texto-invertido-tenue;
+  }
+
+  &__dato {
+    display: inline-flex;
+    align-items: center;
+    gap: v.$espacio-2;
+    transition: color v.$duracion-rapida;
+
+    &:hover {
+      color: v.$color-oro-300;
+    }
+  }
+
+  &__redes {
+    display: inline-flex;
+    align-items: center;
+    gap: v.$espacio-3;
+    margin-inline-start: auto;
+  }
+
+  &__red {
+    color: v.$color-texto-invertido-tenue;
+    transition: color v.$duracion-rapida;
+
+    &:hover {
+      color: v.$color-oro-300;
+    }
+  }
+
+  &__principal {
+    @include m.contenedor();
+    display: flex;
+    align-items: center;
+    gap: v.$espacio-6;
+    padding-block: v.$espacio-4;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    margin-inline-end: auto;
+  }
+
+  &__logo-marca {
+    font-family: v.$fuente-titular;
+    font-size: 1.6rem;
+    font-weight: 560;
+    letter-spacing: 0.03em;
+  }
+
+  &__logo-sub {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: v.$color-oro-300;
+    margin-top: 0.2rem;
+  }
+
+  &__nav {
+    display: none;
+    align-items: center;
+    gap: v.$espacio-6;
+
+    @include m.desde(v.$quiebre-lg) {
+      display: flex;
+    }
+  }
+
+  &__enlace {
+    position: relative;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding-block: v.$espacio-1;
+    color: v.$color-texto-invertido-tenue;
+    transition: color v.$duracion-rapida;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 100%;
+      height: 2px;
+      background-color: v.$color-naranja-500;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform v.$duracion-media v.$easing-salida;
+    }
+
+    &:hover {
+      color: v.$color-texto-invertido;
+    }
+
+    &:hover::after,
+    &--activo::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    &--activo {
+      color: v.$color-texto-invertido;
+    }
+  }
+
+  &__acciones {
+    display: flex;
+    align-items: center;
+    gap: v.$espacio-4;
+  }
+
+  &__cta {
+    display: none;
+
+    @include m.desde(v.$quiebre-lg) {
+      display: inline-flex;
+    }
+  }
+
+  &__disparador-menu {
+    display: inline-flex;
+    color: v.$color-texto-invertido;
+
+    @include m.desde(v.$quiebre-lg) {
+      display: none;
+    }
+  }
+
+  // Truco "grid-template-rows: 0fr → 1fr" para animar de/hacia altura auto sin JS.
+  &__menu-movil {
+    display: grid;
+    grid-template-rows: 0fr;
+    background-color: v.$color-carbon-900;
+    transition: grid-template-rows v.$duracion-media v.$easing-salida;
+
+    @include m.desde(v.$quiebre-lg) {
+      display: none;
+    }
+
+    &--abierto {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__menu-movil-interior {
+    overflow: hidden;
+    min-height: 0;
+    padding-inline: v.$espacio-6;
+  }
+
+  &__menu-movil--abierto &__menu-movil-interior {
+    padding-block: v.$espacio-4;
+  }
+
+  &__enlace-movil {
+    display: block;
+    padding-block: v.$espacio-3;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid v.$color-borde-oscuro;
+  }
+}

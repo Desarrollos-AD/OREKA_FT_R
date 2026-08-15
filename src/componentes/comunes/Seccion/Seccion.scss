@@ -1,0 +1,36 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.seccion {
+  padding-block: v.$espacio-9;
+  position: relative;
+
+  @include m.hasta(v.$quiebre-md) {
+    padding-block: v.$espacio-7;
+  }
+
+  &--clara {
+    background-color: v.$color-hueso;
+    color: v.$color-texto-primario;
+  }
+
+  &--oscura {
+    background-color: v.$color-carbon-900;
+    color: v.$color-texto-invertido;
+  }
+
+  &--blanca {
+    background-color: v.$color-blanco;
+    color: v.$color-texto-primario;
+  }
+
+  &__contenedor {
+    @include m.contenedor();
+    position: relative;
+    z-index: v.$z-contenido;
+
+    &--angosto {
+      @include m.contenedor(v.$ancho-contenedor-angosto);
+    }
+  }
+}

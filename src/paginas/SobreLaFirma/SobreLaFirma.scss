@@ -1,0 +1,189 @@
+@use '../../estilos/variables' as v;
+@use '../../estilos/mixins' as m;
+
+.sobre-la-firma {
+  // Hero: botones + insignia "+15 años" bajo la descripción -----------------
+  &__hero-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: v.$espacio-4;
+    margin-top: v.$espacio-3;
+  }
+
+  &__insignia {
+    display: inline-flex;
+    align-items: baseline;
+    gap: v.$espacio-2;
+    padding: v.$espacio-2 v.$espacio-4;
+    border: 1px solid v.$color-borde-oscuro;
+    border-radius: v.$radio-completo;
+    font-size: 0.85rem;
+    color: v.$color-texto-invertido-tenue;
+
+    strong {
+      font-family: v.$fuente-titular;
+      font-size: 1.15rem;
+      color: v.$color-oro-300;
+    }
+  }
+
+  // Propuesta de Valor: shader ambiental de fondo + 2 párrafos + 3 pasos -----
+  &__propuesta {
+    overflow: hidden;
+  }
+
+  &__fondo-propuesta {
+    position: absolute;
+    inset: 0;
+    z-index: v.$z-fondo-3d;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(v.$color-carbon-900, 0.55), rgba(v.$color-carbon-900, 0.88));
+    }
+  }
+
+  &__propuesta-contenido {
+    position: relative;
+    max-width: 46rem;
+  }
+
+  &__proceso {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$espacio-6;
+    margin-top: v.$espacio-8;
+    padding-top: v.$espacio-7;
+    border-top: 1px solid v.$color-borde-oscuro;
+
+    @include m.hasta(v.$quiebre-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Misión / Visión: bloque partido, sin bordes de tarjeta -------------------
+  &__mision-vision {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: v.$espacio-7;
+
+    @include m.hasta(v.$quiebre-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__grilla-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$espacio-6;
+
+    @include m.hasta(v.$quiebre-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Encabezado de "Nuestros Valores": mismo fondo oscuro que la pista del
+  // sendero 3D que viene justo debajo, para que se lean como un bloque.
+  &__epigrafe-sendero {
+    background-color: v.$color-carbon-900;
+    color: v.$color-texto-invertido;
+    padding-top: v.$espacio-9;
+    text-align: center;
+
+    @include m.hasta(v.$quiebre-md) {
+      padding-top: v.$espacio-7;
+    }
+
+    > * {
+      @include m.contenedor();
+    }
+  }
+
+  // Pista con scroll pinneado vía sticky (mismo truco que la transición
+  // cinemática de Inicio) para el vuelo 3D por la curva de valores.
+  &__pista-sendero {
+    position: relative;
+    height: 220vh;
+
+    @include m.hasta(v.$quiebre-md) {
+      height: 130vh;
+    }
+  }
+
+  &__fija-sendero {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+  }
+}
+
+.paso-proceso {
+  position: relative;
+  padding-left: v.$espacio-6;
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 1.1rem;
+    left: calc(100% + #{v.$espacio-3});
+    width: v.$espacio-6;
+    height: 1px;
+    background-image: linear-gradient(to right, v.$color-naranja-600 50%, transparent 50%);
+    background-size: 8px 1px;
+
+    @include m.hasta(v.$quiebre-md) {
+      display: none;
+    }
+  }
+
+  &__icono {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: v.$radio-completo;
+    background-color: v.$color-naranja-600;
+    color: v.$color-hueso;
+  }
+
+  &__titulo {
+    padding-top: 0.15rem;
+    font-size: 1.02rem;
+    color: v.$color-texto-invertido;
+  }
+
+  &__texto {
+    margin-top: v.$espacio-2;
+    color: v.$color-texto-invertido-tenue;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+.bloque-mv {
+  display: flex;
+  flex-direction: column;
+  gap: v.$espacio-3;
+
+  p {
+    color: v.$color-texto-secundario;
+    line-height: 1.75;
+  }
+
+  &__divisor {
+    width: 1px;
+    background-color: v.$color-borde-claro;
+
+    @include m.hasta(v.$quiebre-md) {
+      display: none;
+    }
+  }
+}

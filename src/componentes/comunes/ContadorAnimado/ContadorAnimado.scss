@@ -1,0 +1,35 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.contador-animado {
+  display: flex;
+  flex-direction: column;
+  gap: v.$espacio-1;
+  text-align: center;
+
+  &__numero {
+    @include m.tipo-fluida(2.25rem, 3.25rem);
+    font-family: v.$fuente-titular;
+    color: v.$color-oro-300;
+  }
+
+  &__etiqueta {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &--oscuro &__etiqueta {
+    color: v.$color-texto-invertido-tenue;
+  }
+
+  &--claro {
+    .contador-animado__numero {
+      color: v.$color-naranja-600;
+    }
+  }
+
+  &--claro &__etiqueta {
+    color: v.$color-texto-secundario;
+  }
+}

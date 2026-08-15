@@ -1,0 +1,72 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: v.$espacio-5;
+  padding: v.$espacio-7;
+  background-color: v.$color-blanco;
+  border-radius: v.$radio-l;
+  box-shadow: v.$sombra-media;
+
+  &__fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: v.$espacio-5;
+
+    @include m.hasta(v.$quiebre-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__campo {
+    display: flex;
+    flex-direction: column;
+    gap: v.$espacio-2;
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: v.$color-texto-primario;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 0.75em 1em;
+      border: 1.5px solid v.$color-borde-claro;
+      border-radius: v.$radio-m;
+      background-color: v.$color-hueso;
+      transition: border-color v.$duracion-rapida;
+
+      &:focus-visible {
+        outline: none;
+        border-color: v.$color-naranja-600;
+      }
+
+      &[aria-invalid='true'] {
+        border-color: #c0392b;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 8rem;
+    }
+  }
+
+  &__error {
+    font-size: 0.8rem;
+    color: #c0392b;
+  }
+
+  &__aviso {
+    padding: v.$espacio-4;
+    border-radius: v.$radio-m;
+    background-color: rgba(v.$color-naranja-600, 0.08);
+    color: v.$color-naranja-600;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+}

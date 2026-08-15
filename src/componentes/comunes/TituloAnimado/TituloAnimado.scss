@@ -1,0 +1,6 @@
+.titulo-animado {
+  &__linea {
+    overflow: hidden;
+    padding-bottom: 0.08em; // evita recortar descendentes (g, j, p, q, y)
+  }
+}

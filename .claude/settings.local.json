@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Figma__get_metadata",
+      "Bash(mkdir -p /tmp/claude-1000/-home-alex-Projects-Projectos-web-OREKA-FT-R/774e1cf3-a3b7-45d5-88db-f7c37e039e0a/scratchpad)",
+      "Bash(curl -sL -o /tmp/claude-1000/-home-alex-Projects-Projectos-web-OREKA-FT-R/774e1cf3-a3b7-45d5-88db-f7c37e039e0a/scratchpad/hero.png \"https://www.figma.com/api/mcp/asset/64b89aff-21fa-4dbb-8242-58f3c36b9eb3.png\")"
+    ]
+  }
+}

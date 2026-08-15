@@ -1,0 +1,107 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.pie-de-pagina {
+  background-color: v.$color-carbon-900;
+  color: v.$color-texto-invertido-tenue;
+  padding-block: v.$espacio-9 v.$espacio-6;
+
+  &__contenido {
+    @include m.contenedor();
+    display: grid;
+    gap: v.$espacio-7;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+
+    @include m.hasta(v.$quiebre-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.hasta(v.$quiebre-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__marca {
+    display: flex;
+    flex-direction: column;
+    gap: v.$espacio-3;
+    max-width: 22rem;
+  }
+
+  &__logo {
+    font-family: v.$fuente-titular;
+    font-size: 1.75rem;
+    color: v.$color-texto-invertido;
+    letter-spacing: 0.03em;
+  }
+
+  &__eslogan {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  &__redes {
+    display: flex;
+    gap: v.$espacio-3;
+    margin-top: v.$espacio-2;
+
+    a {
+      display: inline-flex;
+      padding: v.$espacio-2;
+      border: 1px solid v.$color-borde-oscuro;
+      border-radius: v.$radio-completo;
+      transition: border-color v.$duracion-rapida, color v.$duracion-rapida;
+
+      &:hover {
+        border-color: v.$color-naranja-500;
+        color: v.$color-oro-300;
+      }
+    }
+  }
+
+  &__columna {
+    display: flex;
+    flex-direction: column;
+    gap: v.$espacio-3;
+    font-size: 0.88rem;
+
+    a {
+      transition: color v.$duracion-rapida;
+
+      &:hover {
+        color: v.$color-oro-300;
+      }
+    }
+  }
+
+  &__titulo-columna {
+    font-family: v.$fuente-cuerpo;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: v.$color-texto-invertido;
+    margin-bottom: v.$espacio-1;
+  }
+
+  &__dato {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: v.$espacio-2;
+  }
+
+  &__inferior {
+    @include m.contenedor();
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: v.$espacio-2;
+    margin-top: v.$espacio-9;
+    padding-top: v.$espacio-5;
+    border-top: 1px solid v.$color-borde-oscuro;
+    font-size: 0.78rem;
+  }
+
+  &__aviso {
+    color: v.$color-naranja-400;
+  }
+}

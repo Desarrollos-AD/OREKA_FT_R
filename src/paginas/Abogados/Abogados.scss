@@ -1,0 +1,19 @@
+@use '../../estilos/variables' as v;
+@use '../../estilos/mixins' as m;
+
+.abogados {
+  &__lista {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$espacio-4;
+    max-width: 34rem;
+    margin: v.$espacio-9 auto 0;
+    text-align: center;
+  }
+}

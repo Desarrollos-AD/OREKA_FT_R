@@ -1,0 +1,112 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.fila-servicio {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: v.$espacio-8;
+  align-items: center;
+  padding-block: v.$espacio-8;
+  scroll-margin-top: 7rem; // para que el ancla #id no quede tapada por el encabezado fijo
+
+  & + & {
+    border-top: 1px solid v.$color-borde-claro;
+  }
+
+  @include m.hasta(v.$quiebre-md) {
+    grid-template-columns: 1fr;
+    gap: v.$espacio-5;
+    padding-block: v.$espacio-6;
+  }
+
+  &__texto {
+    display: flex;
+    flex-direction: column;
+    gap: v.$espacio-4;
+    order: 1;
+  }
+
+  &__cabecera {
+    display: flex;
+    align-items: center;
+    gap: v.$espacio-4;
+  }
+
+  &__icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: v.$radio-completo;
+    background-color: v.$color-naranja-600;
+    color: v.$color-blanco;
+  }
+
+  &__titulo {
+    @include m.tipo-fluida(1.35rem, 1.7rem);
+    display: inline-block;
+    padding-bottom: 0.2em;
+    border-bottom: 3px solid v.$color-naranja-600;
+  }
+
+  &__parrafo {
+    color: v.$color-texto-secundario;
+    line-height: 1.7;
+  }
+
+  &__panel {
+    position: relative;
+    order: 2;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: v.$radio-l;
+    background: linear-gradient(150deg, v.$color-carbon-800, v.$color-carbon-900 70%);
+    box-shadow: v.$sombra-media;
+
+    // patrón de puntos decorativo en la esquina, como en el Figma
+    &::before {
+      content: '';
+      position: absolute;
+      top: v.$espacio-4;
+      right: v.$espacio-4;
+      width: 4.5rem;
+      height: 4.5rem;
+      background-image: radial-gradient(v.$color-naranja-600 1.5px, transparent 1.5px);
+      background-size: 10px 10px;
+      opacity: 0.55;
+    }
+  }
+
+  &__panel-numero {
+    position: absolute;
+    left: v.$espacio-5;
+    bottom: v.$espacio-4;
+    font-family: v.$fuente-titular;
+    font-size: 3.5rem;
+    color: rgba(v.$color-hueso, 0.08);
+    line-height: 1;
+  }
+
+  &__panel-icono {
+    color: v.$color-oro-500;
+    opacity: 0.7;
+  }
+
+  &--invertida &__texto {
+    order: 2;
+  }
+
+  &--invertida &__panel {
+    order: 1;
+
+    &::before {
+      right: auto;
+      left: v.$espacio-4;
+    }
+  }
+}

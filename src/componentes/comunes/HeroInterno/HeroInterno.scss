@@ -1,0 +1,51 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.hero-interno {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 62vh;
+  padding-top: 9rem;
+  padding-bottom: v.$espacio-8;
+  overflow: hidden;
+  background-color: v.$color-carbon-900;
+  color: v.$color-texto-invertido;
+
+  &__fondo {
+    position: absolute;
+    inset: 0;
+    z-index: v.$z-fondo-3d;
+  }
+
+  &__velo {
+    position: absolute;
+    inset: 0;
+    z-index: v.$z-fondo-3d + 1;
+    background: linear-gradient(
+      180deg,
+      rgba(v.$color-carbon-900, 0.35) 0%,
+      rgba(v.$color-carbon-900, 0.55) 55%,
+      rgba(v.$color-carbon-900, 0.92) 100%
+    );
+    pointer-events: none;
+  }
+
+  &__contenido {
+    position: relative;
+    z-index: v.$z-contenido;
+    @include m.contenedor();
+    display: flex;
+    flex-direction: column;
+    gap: v.$espacio-4;
+    max-width: 44rem;
+  }
+
+  &__epigrafe {
+    color: v.$color-oro-300;
+  }
+
+  &__titulo {
+    color: v.$color-texto-invertido;
+  }
+}

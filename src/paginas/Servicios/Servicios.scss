@@ -1,0 +1,17 @@
+@use '../../estilos/variables' as v;
+@use '../../estilos/mixins' as m;
+
+.servicios {
+  &__lista {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$espacio-4;
+    text-align: center;
+  }
+}

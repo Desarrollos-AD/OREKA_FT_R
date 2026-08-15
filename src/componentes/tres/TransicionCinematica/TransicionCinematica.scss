@@ -1,0 +1,69 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.transicion-cinematica {
+  // absolute + z-index: se monta por encima de <RespaldoTransicion>, que
+  // queda siempre en el HTML (prerenderizado, real para SEO) como base.
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  background-color: v.$color-carbon-900;
+
+  &__lienzo {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  &__velo {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(v.$color-carbon-900, 0.85) 100%);
+    pointer-events: none;
+  }
+
+  &__texto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: v.$espacio-6;
+  }
+
+  &__punto {
+    position: absolute;
+    max-width: 34rem;
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity v.$duracion-lenta v.$easing-salida, transform v.$duracion-lenta v.$easing-salida;
+    color: v.$color-texto-invertido;
+
+    &--activo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h3 {
+      @include m.tipo-fluida(1.6rem, 2.4rem);
+      font-family: v.$fuente-titular;
+      margin-block: v.$espacio-3;
+    }
+
+    p {
+      color: v.$color-texto-invertido-tenue;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__numero {
+    font-family: v.$fuente-titular;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    color: v.$color-oro-300;
+  }
+}

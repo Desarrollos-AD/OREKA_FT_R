@@ -1,0 +1,5 @@
+// Punto de entrada global de estilos. Se importa una única vez desde
+// src/main.jsx. El resto de los componentes importan sus propios .scss
+// (con clases BEM) y usan @use 'variables'/'mixins' para los tokens.
+@use 'reset';
+@use 'tipografia';

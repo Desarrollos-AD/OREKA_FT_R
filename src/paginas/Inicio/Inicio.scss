@@ -1,0 +1,147 @@
+@use '../../estilos/variables' as v;
+@use '../../estilos/mixins' as m;
+
+// Hero ------------------------------------------------------------------
+.hero-inicio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: v.$color-carbon-900;
+  color: v.$color-texto-invertido;
+
+  &__fondo {
+    position: absolute;
+    inset: 0;
+    z-index: v.$z-fondo-3d;
+  }
+
+  &__velo {
+    position: absolute;
+    inset: 0;
+    z-index: v.$z-fondo-3d + 1;
+    background: linear-gradient(
+      100deg,
+      rgba(v.$color-carbon-900, 0.96) 0%,
+      rgba(v.$color-carbon-900, 0.75) 42%,
+      rgba(v.$color-carbon-900, 0.1) 72%
+    );
+    pointer-events: none;
+  }
+
+  &__contenido {
+    position: relative;
+    z-index: v.$z-contenido;
+    @include m.contenedor();
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: v.$espacio-4;
+    max-width: 38rem;
+    padding-top: 6rem;
+  }
+
+  &__epigrafe {
+    color: v.$color-oro-300;
+  }
+
+  &__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: v.$espacio-4;
+    margin-top: v.$espacio-3;
+  }
+}
+
+// Franja de stats ---------------------------------------------------------
+.franja-stats {
+  padding-block: v.$espacio-7;
+
+  &__grilla {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: v.$espacio-6;
+
+    @include m.hasta(v.$quiebre-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Grilla de áreas de práctica ----------------------------------------------
+.inicio__grilla-areas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: v.$espacio-5;
+  margin-top: v.$espacio-7;
+
+  @include m.hasta(v.$quiebre-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.hasta(v.$quiebre-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inicio__ver-todas {
+  display: flex;
+  justify-content: center;
+  margin-top: v.$espacio-7;
+}
+
+// Sección cinemática (pista con scroll pinneado vía sticky) -----------------
+.inicio__pista-cinematica {
+  position: relative;
+  height: 220vh;
+
+  @include m.hasta(v.$quiebre-md) {
+    height: 130vh;
+  }
+}
+
+.inicio__fija-cinematica {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+// CTA final -----------------------------------------------------------------
+.cta-final {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  overflow: hidden;
+  background-color: v.$color-carbon-900;
+  color: v.$color-texto-invertido;
+  text-align: center;
+
+  &__fondo {
+    position: absolute;
+    inset: 0;
+    z-index: v.$z-fondo-3d;
+  }
+
+  &__velo {
+    position: absolute;
+    inset: 0;
+    z-index: v.$z-fondo-3d + 1;
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(v.$color-carbon-900, 0.85) 100%);
+    pointer-events: none;
+  }
+
+  &__contenido {
+    position: relative;
+    z-index: v.$z-contenido;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$espacio-4;
+    max-width: 34rem;
+    padding-inline: v.$espacio-6;
+  }
+}

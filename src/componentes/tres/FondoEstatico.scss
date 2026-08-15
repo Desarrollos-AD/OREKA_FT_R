@@ -1,0 +1,19 @@
+@use '../../estilos/variables' as v;
+
+.fondo-estatico {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  &--balanza,
+  &--shader {
+    background: radial-gradient(ellipse at 60% 30%, rgba(v.$color-oro-500, 0.22), transparent 55%),
+      linear-gradient(160deg, v.$color-carbon-800, v.$color-carbon-900 65%);
+  }
+
+  &--particulas {
+    background: radial-gradient(ellipse at 50% 50%, rgba(v.$color-naranja-600, 0.14), transparent 60%),
+      linear-gradient(200deg, v.$color-carbon-900, v.$color-carbon-800);
+  }
+}

@@ -1,0 +1,91 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.sendero-trayectoria {
+  // absolute + z-index: se monta por encima de <RespaldoSendero>, que
+  // queda siempre en el HTML (prerenderizado, real para SEO) como base.
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  background-color: v.$color-carbon-900;
+
+  &__lienzo {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  &__velo {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(v.$color-carbon-900, 0.15) 0%,
+      rgba(v.$color-carbon-900, 0.65) 78%,
+      rgba(v.$color-carbon-900, 0.92) 100%
+    );
+    pointer-events: none;
+  }
+
+  &__texto {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: v.$espacio-9;
+    padding-inline: v.$espacio-6;
+  }
+
+  &__hito {
+    position: absolute;
+    max-width: 30rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity v.$duracion-lenta v.$easing-salida, transform v.$duracion-lenta v.$easing-salida;
+    color: v.$color-texto-invertido;
+
+    &--activo {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    p {
+      color: v.$color-texto-invertido-tenue;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      margin-top: v.$espacio-2;
+    }
+  }
+
+  &__anio {
+    font-family: v.$fuente-titular;
+    font-size: 1.75rem;
+    color: v.$color-oro-300;
+  }
+
+  &__progreso {
+    position: absolute;
+    left: 50%;
+    bottom: v.$espacio-5;
+    transform: translateX(-50%);
+    display: flex;
+    gap: v.$espacio-2;
+  }
+
+  &__punto {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: v.$radio-completo;
+    background-color: v.$color-borde-oscuro;
+    transition: background-color v.$duracion-media, transform v.$duracion-media;
+
+    &--activo {
+      background-color: v.$color-naranja-600;
+      transform: scale(1.4);
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@use '../../../estilos/variables' as v;
+@use '../../../estilos/mixins' as m;
+
+.respaldo-sendero {
+  // absolute, no relative: convive en el mismo contenedor que el <canvas>
+  // 3D (que se monta encima una vez listo) — ver SobreLaFirma.jsx.
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: v.$color-carbon-900;
+
+  &__fondo {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(v.$color-oro-500, 0.14), transparent 60%),
+      linear-gradient(160deg, v.$color-carbon-900, v.$color-carbon-800);
+  }
+
+  &__lista {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$espacio-6 v.$espacio-7;
+    max-width: 52rem;
+    padding-inline: v.$espacio-6;
+
+    @include m.hasta(v.$quiebre-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include m.hasta(v.$quiebre-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__hito {
+    position: relative;
+    color: v.$color-texto-invertido;
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity v.$duracion-lenta v.$easing-salida, transform v.$duracion-lenta v.$easing-salida;
+
+    p {
+      margin-top: v.$espacio-2;
+      color: v.$color-texto-invertido-tenue;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__numero {
+    display: block;
+    font-family: v.$fuente-titular;
+    font-size: 2.5rem;
+    color: rgba(v.$color-hueso, 0.1);
+  }
+
+  &__anio {
+    display: block;
+    margin-top: -1.5rem;
+    font-family: v.$fuente-titular;
+    font-size: 1.3rem;
+    color: v.$color-oro-300;
+  }
+
+  &__lista--visible &__hito {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
