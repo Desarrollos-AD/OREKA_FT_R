@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .contador-animado {
   display: flex;
@@ -25,7 +25,7 @@
 
   &--claro {
     .contador-animado__numero {
-      color: v.$color-naranja-600;
+      color: v.$primario;
     }
   }
 

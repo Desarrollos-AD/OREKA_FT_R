@@ -24,6 +24,10 @@ export function useDesplazamientoSuave() {
 
     lenis.on('scroll', ScrollTrigger.update)
 
+    // Se expone para que otros hooks (p. ej. useDesplazamientoAlHash) puedan
+    // pedirle un scrollTo sin pelearse con su scroll virtual.
+    window.__lenis = lenis
+
     const alPaso = (tiempo) => {
       lenis.raf(tiempo * 1000)
     }
@@ -32,6 +36,7 @@ export function useDesplazamientoSuave() {
 
     return () => {
       gsap.ticker.remove(alPaso)
+      window.__lenis = null
       lenis.destroy()
     }
   }, [])

@@ -10,7 +10,7 @@ export function TarjetaServicio({ area, className = '' }) {
     <article className={`tarjeta-servicio ${className}`.trim()}>
       <div className="tarjeta-servicio__cabecera">
         <span className="tarjeta-servicio__icono">
-          <Icono nombre={area.icono} tamano={26} />
+          <img src={area.icono} alt={area.icono} />
         </span>
         <span className="tarjeta-servicio__numero">{area.numero}</span>
       </div>
@@ -23,5 +23,5 @@ export function TarjetaServicio({ area, className = '' }) {
         <Icono nombre="flecha" tamano={16} />
       </Link>
     </article>
-  )
+  );
 }

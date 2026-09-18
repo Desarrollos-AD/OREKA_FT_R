@@ -1,5 +1,5 @@
-@use '../../estilos/variables' as v;
-@use '../../estilos/mixins' as m;
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
 
 .servicios {
   &__lista {
@@ -13,5 +13,20 @@
     align-items: center;
     gap: v.$espacio-4;
     text-align: center;
+    background-image: url('/imgServiciosAsesoria.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    &::after{
+      content: '';
+      background-color: rgba(v.$color-carbon-800, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 }

@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .transicion-cinematica {
   // absolute + z-index: se monta por encima de <RespaldoTransicion>, que
@@ -8,7 +8,7 @@
   inset: 0;
   z-index: 2;
   overflow: hidden;
-  background-color: v.$color-carbon-900;
+  background-color: v.$secundario;
 
   &__lienzo {
     position: absolute !important;
@@ -20,7 +20,7 @@
   &__velo {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, transparent 30%, rgba(v.$color-carbon-900, 0.85) 100%);
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(v.$secundario, 0.85) 100%);
     pointer-events: none;
   }
 

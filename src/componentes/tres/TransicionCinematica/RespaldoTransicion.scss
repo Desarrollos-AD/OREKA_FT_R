@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .respaldo-transicion {
   // absolute, no relative: convive en el mismo contenedor que el <canvas>
@@ -10,13 +10,13 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: v.$color-carbon-900;
+  background-color: v.$secundario;
 
   &__fondo {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 40%, rgba(v.$color-oro-500, 0.16), transparent 60%),
-      linear-gradient(160deg, v.$color-carbon-900, v.$color-carbon-800);
+    background: radial-gradient(ellipse at 50% 40%, rgba(v.$terciario, 0.16), transparent 60%),
+      linear-gradient(160deg, v.$secundario, v.$color-carbon-800);
   }
 
   &__lista {

@@ -1,7 +1,7 @@
 import { Head } from 'vite-react-ssg'
 import { ClienteSolo } from '../../componentes/tres/ClienteSolo'
 import { FondoEstatico } from '../../componentes/tres/FondoEstatico'
-import { CampoDeParticulasPerezoso } from '../../componentes/tres/CampoDeParticulas'
+import { ListonesDoradosPerezoso } from '../../componentes/tres/ListonesDorados'
 import { HeroInterno } from '../../componentes/comunes/HeroInterno/HeroInterno'
 import { Seccion } from '../../componentes/comunes/Seccion/Seccion'
 import { FilaAbogado } from '../../componentes/comunes/FilaAbogado/FilaAbogado'
@@ -21,7 +21,7 @@ export function Abogados() {
         epigrafe="Nuestro Equipo"
         titulo="Abogados que respaldan cada decisión"
         descripcion="Un equipo multidisciplinario con +15 años de experiencia legal combinada, especializado por materia y coordinado bajo una misma estrategia."
-        fondo={<ClienteSolo Componente={CampoDeParticulasPerezoso} respaldo={<FondoEstatico variante="particulas" />} soloEscritorio />}
+        fondo={<ClienteSolo Componente={ListonesDoradosPerezoso} respaldo={<FondoEstatico variante="listones" />} />}
       />
 
       <Seccion tono="oscura">
@@ -32,7 +32,7 @@ export function Abogados() {
         </div>
 
         <div className="abogados__cta">
-          <p className="u-parrafo-guia u-parrafo-guia--invertido">
+          <p className="u-parrafo-guia">
             ¿Tu caso necesita más de una especialidad? Coordinamos internamente para darte una sola
             estrategia clara.
           </p>

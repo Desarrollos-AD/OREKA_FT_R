@@ -1,8 +1,7 @@
 import './Icono.scss'
 
-// Set mínimo de íconos de línea propios (sin depender de una librería de
-// íconos externa) para las áreas de práctica, los datos de contacto y las
-// redes sociales. Trazo consistente de 1.6px, viewBox 24x24.
+// Set mínimo de íconos de línea propios para las áreas de práctica, los datos de
+//  contacto y las redes sociales. Trazo consistente de 1.6px, viewBox 24x24.
 const TRAZOS = {
   balanza: (
     <>
@@ -15,12 +14,12 @@ const TRAZOS = {
       <path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5M3 12.5h18" />
     </>
   ),
-  documento: (
-    <>
-      <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
-      <path d="M14 3v5h5M9 13h6M9 17h6" />
-    </>
-  ),
+  // documento: (
+  //   <>
+  //     <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
+  //     <path d="M14 3v5h5M9 13h6M9 17h6" />
+  //   </>
+  // ),
   familia: (
     <>
       <circle cx="8" cy="7" r="2.4" />
@@ -38,12 +37,6 @@ const TRAZOS = {
     <>
       <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" />
       <path d="m9 12 2 2 4-4" />
-    </>
-  ),
-  grafico: (
-    <>
-      <path d="M4 20V10M11 20V4M18 20v-7" />
-      <path d="M3 20h18" />
     </>
   ),
   martillo: (
@@ -74,6 +67,7 @@ const TRAZOS = {
     </>
   ),
   flecha: <path d="M5 12h13M13 6l6 6-6 6" />,
+  flechaAbajo: <path d="m6 9 6 6 6-6" />,
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,
   cerrar: <path d="m5 5 14 14M19 5 5 19" />,
   facebook: (

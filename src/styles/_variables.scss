@@ -1,38 +1,38 @@
-// -----------------------------------------------------------------------------
-// Fichas de diseño (design tokens). El naranja y el dorado son los valores
-// EXACTOS tomados del panel de Colores de Figma (nodo de la página de
-// Servicios: FF5D11 y A67C52). El resto de la paleta (carbón, hueso) sigue
-// siendo una aproximación visual — ajustar si se confirman contra Variables.
-// -----------------------------------------------------------------------------
-
 // Color -----------------------------------------------------------------------
-$color-carbon-900: #141312;
+$secundario: #202020;
 $color-carbon-800: #1c1a18;
 $color-carbon-700: #2a2724;
-$color-carbon-600: #3c3733;
 
-$color-hueso: #f7f5f1;
-$color-blanco: #ffffff;
+$blanco: #ffffff;
+$blanco-fm:#F8F8F8;
+$oscuro-fm:#EDEDED;
 
-$color-naranja-600: #ff5d11; // FF5D11 exacto de Figma
+$primario: #FF5D11; // FF5D11 exacto de Figma
 $color-naranja-500: #ff7a3d;
 $color-naranja-400: #ff9a68;
 
 $color-oro-600: #8a6640;
-$color-oro-500: #a67c52; // A67C52 exacto de Figma
+$terciario: #a67c52; // A67C52 exacto de Figma
 $color-oro-300: #c9a67d;
 
 $color-texto-primario: $color-carbon-800;
 $color-texto-secundario: rgba($color-carbon-800, 0.68);
-$color-texto-invertido: $color-hueso;
-$color-texto-invertido-tenue: rgba($color-hueso, 0.7);
+$color-texto-invertido: $blanco;
+$color-texto-invertido-tenue: rgba($blanco, 0.7);
 
 $color-borde-claro: rgba($color-carbon-800, 0.12);
-$color-borde-oscuro: rgba($color-hueso, 0.14);
+$color-borde-oscuro: rgba($blanco, 0.14);
 
 // Tipografía --------------------------------------------------------------
-$fuente-titular: 'Fraunces Variable', 'Fraunces', 'Iowan Old Style', serif;
+$fuente-titular: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 $fuente-cuerpo: 'Manrope Variable', 'Manrope', 'Segoe UI', sans-serif;
+
+//Grosor de las tipografías (valores de peso de fuente, no de CSS)
+$light: 300;   
+$regular: 400;   
+$bold: 700;
+$black: 900;   
 
 // Espaciado (escala base 4px) -----------------------------------------------
 $espacio-1: 0.25rem;
@@ -76,4 +76,5 @@ $easing-entrada-salida: cubic-bezier(0.65, 0, 0.35, 1);
 $quiebre-sm: 36rem; // 576px
 $quiebre-md: 48rem; // 768px
 $quiebre-lg: 64rem; // 1024px
-$quiebre-xl: 80rem; // 1280px
+$quiebre-xl: 80rem; // 1280px 
+$quiebre-xxl: 96rem; // 1536px

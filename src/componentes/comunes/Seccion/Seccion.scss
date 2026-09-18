@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .seccion {
   padding-block: v.$espacio-9;
@@ -9,18 +9,13 @@
     padding-block: v.$espacio-7;
   }
 
-  &--clara {
-    background-color: v.$color-hueso;
-    color: v.$color-texto-primario;
-  }
-
   &--oscura {
-    background-color: v.$color-carbon-900;
-    color: v.$color-texto-invertido;
+    background-color: v.$secundario;
+    color: v.$blanco;
   }
 
   &--blanca {
-    background-color: v.$color-blanco;
+    background-color: v.$blanco;
     color: v.$color-texto-primario;
   }
 
@@ -28,6 +23,18 @@
     @include m.contenedor();
     position: relative;
     z-index: v.$z-contenido;
+
+    &--angosto {
+      @include m.contenedor(v.$ancho-contenedor-angosto);
+    }
+  }
+  &__contenedor--flex {
+    @include m.contenedor();
+    position: relative;
+    z-index: v.$z-contenido;
+    display: flex;
+    align-items: center;
+    gap: v.$espacio-6;
 
     &--angosto {
       @include m.contenedor(v.$ancho-contenedor-angosto);

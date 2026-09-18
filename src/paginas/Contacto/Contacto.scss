@@ -1,5 +1,5 @@
-@use '../../estilos/variables' as v;
-@use '../../estilos/mixins' as m;
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
 
 .contacto {
   &__tarjetas {
@@ -24,16 +24,42 @@
     }
   }
 
-  &__mapa {
-    min-height: 22rem;
+  &__confianza {
+    display: flex;
+    flex-direction: column;
+    gap: v.$espacio-5;
+    padding: v.$espacio-7;
     border-radius: v.$radio-l;
+    background: v.$color-carbon-800;
+    box-shadow: v.$sombra-media;
+
+    &-titulo {
+      color: v.$color-oro-300;
+    }
+
+    &-texto {
+      color: v.$color-texto-invertido-tenue;
+      line-height: 1.6;
+    }
+
+    &-lista {
+      display: flex;
+      flex-direction: column;
+      gap: v.$espacio-4;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__mapa {
     overflow: hidden;
     box-shadow: v.$sombra-media;
 
     iframe {
       width: 100%;
       height: 100%;
-      min-height: 22rem;
+      min-height: 35rem;
       border: 0;
     }
   }
@@ -53,8 +79,8 @@
     height: 3rem;
     margin-bottom: v.$espacio-3;
     border-radius: v.$radio-completo;
-    background-color: rgba(v.$color-naranja-600, 0.1);
-    color: v.$color-naranja-600;
+    background-color: rgba(v.$primario, 0.1);
+    color: v.$primario;
   }
 
   &__titulo {
@@ -65,5 +91,39 @@
   &__valor {
     color: v.$color-texto-secundario;
     line-height: 1.5;
+  }
+}
+
+.confianza-punto {
+  display: flex;
+  align-items: flex-start;
+  gap: v.$espacio-3;
+
+  &__icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: v.$radio-completo;
+    background-color: rgba(v.$primario, 0.18);
+    color: v.$primario;
+  }
+
+  &__texto {
+    strong {
+      display: block;
+      margin-bottom: v.$espacio-1;
+      font-size: 0.95rem;
+      color: v.$color-texto-invertido;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: v.$color-texto-invertido-tenue;
+    }
   }
 }

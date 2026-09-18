@@ -1,4 +1,5 @@
-@use '../../estilos/variables' as v;
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
 
 .fondo-estatico {
   position: absolute;
@@ -8,12 +9,18 @@
 
   &--balanza,
   &--shader {
-    background: radial-gradient(ellipse at 60% 30%, rgba(v.$color-oro-500, 0.22), transparent 55%),
-      linear-gradient(160deg, v.$color-carbon-800, v.$color-carbon-900 65%);
+    background: radial-gradient(ellipse at 60% 30%, rgba(v.$terciario, 0.22), transparent 55%),
+      linear-gradient(160deg, v.$color-carbon-800, v.$secundario 65%);
   }
 
   &--particulas {
-    background: radial-gradient(ellipse at 50% 50%, rgba(v.$color-naranja-600, 0.14), transparent 60%),
-      linear-gradient(200deg, v.$color-carbon-900, v.$color-carbon-800);
+    background: radial-gradient(ellipse at 50% 50%, rgba(v.$primario, 0.14), transparent 60%),
+      linear-gradient(200deg, v.$secundario, v.$color-carbon-800);
+  }
+
+  &--listones {
+    background: linear-gradient(155deg, v.$color-carbon-800 0%, v.$secundario 45%, v.$color-carbon-800 100%),
+      linear-gradient(20deg, transparent 38%, rgba(v.$color-oro-300, 0.22) 48%, transparent 58%),
+      linear-gradient(24deg, transparent 60%, rgba(v.$terciario, 0.16) 68%, transparent 78%);
   }
 }

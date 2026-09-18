@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .tarjeta-servicio {
   position: relative;
@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: v.$espacio-3;
   padding: v.$espacio-6;
-  background-color: v.$color-blanco;
+  background-color: v.$blanco;
   border: 1px solid v.$color-borde-claro;
   border-radius: v.$radio-l;
   transition: transform v.$duracion-media v.$easing-salida, box-shadow v.$duracion-media v.$easing-salida,
@@ -31,9 +31,6 @@
     justify-content: center;
     width: 3rem;
     height: 3rem;
-    border-radius: v.$radio-m;
-    background-color: rgba(v.$color-naranja-600, 0.1);
-    color: v.$color-naranja-600;
   }
 
   &__numero {
@@ -44,6 +41,7 @@
 
   &__titulo {
     font-size: 1.2rem;
+    color: v.$terciario;
   }
 
   &__resumen {
@@ -59,7 +57,7 @@
     margin-top: v.$espacio-2;
     font-weight: 700;
     font-size: 0.9rem;
-    color: v.$color-naranja-600;
+    color: v.$primario;
 
     svg {
       transition: transform v.$duracion-rapida v.$easing-salida;

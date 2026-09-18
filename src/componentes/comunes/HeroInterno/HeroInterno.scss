@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .hero-interno {
   position: relative;
@@ -9,7 +9,7 @@
   padding-top: 9rem;
   padding-bottom: v.$espacio-8;
   overflow: hidden;
-  background-color: v.$color-carbon-900;
+  background-image: url('/fondo-servicios.jpg');
   color: v.$color-texto-invertido;
 
   &__fondo {
@@ -24,9 +24,9 @@
     z-index: v.$z-fondo-3d + 1;
     background: linear-gradient(
       180deg,
-      rgba(v.$color-carbon-900, 0.35) 0%,
-      rgba(v.$color-carbon-900, 0.55) 55%,
-      rgba(v.$color-carbon-900, 0.92) 100%
+      rgba(v.$secundario, 0.35) 0%,
+      rgba(v.$secundario, 0.55) 55%,
+      rgba(v.$secundario, 0.92) 100%
     );
     pointer-events: none;
   }
@@ -38,14 +38,18 @@
     display: flex;
     flex-direction: column;
     gap: v.$espacio-4;
-    max-width: 44rem;
-  }
-
-  &__epigrafe {
-    color: v.$color-oro-300;
   }
 
   &__titulo {
     color: v.$color-texto-invertido;
+  }
+
+  &__epigrafe {
+    font-family: v.$fuente-cuerpo;
+    font-weight: v.$bold;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: v.$color-oro-300;
   }
 }

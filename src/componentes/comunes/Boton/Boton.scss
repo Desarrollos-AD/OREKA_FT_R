@@ -1,5 +1,8 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+// @use './../../styles/variables' as v;
+// @use './../../styles/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
 
 .boton {
   position: relative;
@@ -29,8 +32,8 @@
   }
 
   &--primario {
-    background-color: v.$color-naranja-600;
-    color: v.$color-hueso;
+    background-color: v.$primario;
+    color: v.$blanco;
     box-shadow: v.$sombra-suave;
 
     &:hover {
@@ -40,21 +43,31 @@
     }
   }
 
+  &--terciario {
+    background-color: v.$terciario;
+    color: v.$blanco;
+    border: 1.5px solid v.$color-borde-claro;
+
+    &:hover {
+      background-color: v.$color-oro-600;
+    }
+  }
+
   &--fantasma {
     background-color: transparent;
     color: v.$color-texto-primario;
     border: 1.5px solid v.$color-borde-claro;
 
     &:hover {
-      border-color: v.$color-naranja-600;
-      color: v.$color-naranja-600;
+      border-color: v.$primario;
+      color: v.$primario;
     }
   }
 
   &--enlace {
     padding: 0;
     border-radius: 0;
-    color: v.$color-naranja-600;
+    color: v.$primario;
 
     .boton__etiqueta {
       padding-bottom: 0.15em;

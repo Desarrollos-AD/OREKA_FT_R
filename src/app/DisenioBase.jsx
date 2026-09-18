@@ -3,7 +3,8 @@ import { Head } from 'vite-react-ssg'
 import { Encabezado } from '../componentes/comunes/Encabezado/Encabezado'
 import { PieDePagina } from '../componentes/comunes/PieDePagina/PieDePagina'
 import { useDesplazamientoSuave } from '../ganchos/useDesplazamientoSuave'
-import '../estilos/base.scss'
+import { useDesplazamientoAlHash } from '../ganchos/useDesplazamientoAlHash'
+import "../styles/base.scss";
 
 /**
  * Layout raíz: encabezado + contenido de la ruta activa + pie de página,
@@ -13,6 +14,7 @@ import '../estilos/base.scss'
  */
 export function DisenioBase() {
   useDesplazamientoSuave()
+  useDesplazamientoAlHash()
 
   return (
     <>

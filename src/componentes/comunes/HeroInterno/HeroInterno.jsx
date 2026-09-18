@@ -14,9 +14,9 @@ export function HeroInterno({ epigrafe, titulo, descripcion, fondo, children }) 
       <div className="hero-interno__velo" />
 
       <div className="hero-interno__contenido">
-        {epigrafe && <span className="u-epigrafe hero-interno__epigrafe">{epigrafe}</span>}
+        {epigrafe && <span className="hero-interno__epigrafe">{epigrafe}</span>}
         <TituloAnimado texto={titulo} como="h1" className="u-titulo-hero hero-interno__titulo" disparo="montaje" />
-        {descripcion && <p className="u-parrafo-guia u-parrafo-guia--invertido">{descripcion}</p>}
+        {descripcion && <p className="u-parrafo-guia">{descripcion}</p>}
         {children}
       </div>
     </header>

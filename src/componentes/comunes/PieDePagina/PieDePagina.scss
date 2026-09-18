@@ -1,10 +1,10 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .pie-de-pagina {
-  background-color: v.$color-carbon-900;
-  color: v.$color-texto-invertido-tenue;
-  padding-block: v.$espacio-9 v.$espacio-6;
+  background-color: v.$secundario;
+  color: v.$blanco;
+  padding-block: v.$espacio-9 0;
 
   &__contenido {
     @include m.contenedor();
@@ -26,6 +26,12 @@
     flex-direction: column;
     gap: v.$espacio-3;
     max-width: 22rem;
+    align-items: center;
+
+    img {
+      height: 10rem;
+      width: 10rem;
+    }
   }
 
   &__logo {
@@ -43,8 +49,8 @@
   &__redes {
     display: flex;
     gap: v.$espacio-3;
-    margin-top: v.$espacio-2;
-
+    color: v.$terciario;
+    
     a {
       display: inline-flex;
       padding: v.$espacio-2;
@@ -79,7 +85,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: v.$color-texto-invertido;
+    color: v.$primario;
     margin-bottom: v.$espacio-1;
   }
 
@@ -90,18 +96,24 @@
   }
 
   &__inferior {
-    @include m.contenedor();
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: v.$espacio-2;
-    margin-top: v.$espacio-9;
-    padding-top: v.$espacio-5;
-    border-top: 1px solid v.$color-borde-oscuro;
-    font-size: 0.78rem;
+    height: 5rem;
+    background-image: url("/public/Decoracion_gris.svg");
+    background-size: 28rem;
+
+    &__contenedor{
+        @include m.contenedor();
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: v.$espacio-2;
+          margin-top: v.$espacio-8;
+          padding-top: v.$espacio-5;
+          border-top: 1px solid v.$primario;
+          font-size: 0.78rem;
+    }
   }
 
   &__aviso {
-    color: v.$color-naranja-400;
+    color: v.$color-naranja-500;
   }
 }

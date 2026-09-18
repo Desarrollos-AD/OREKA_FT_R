@@ -3,7 +3,7 @@
 
 // Contenedor centrado con padding lateral fluido
 @mixin contenedor($ancho: v.$ancho-contenedor) {
-  width: min(100% - #{v.$espacio-6}, #{$ancho});
+  width: min(100% - #{v.$espacio-8}, #{$ancho});
   margin-inline: auto;
 }
 

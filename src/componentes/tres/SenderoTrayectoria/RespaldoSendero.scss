@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .respaldo-sendero {
   // absolute, no relative: convive en el mismo contenedor que el <canvas>
@@ -10,13 +10,13 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: v.$color-carbon-900;
+  background-color: v.$secundario;
 
   &__fondo {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 50% 30%, rgba(v.$color-oro-500, 0.14), transparent 60%),
-      linear-gradient(160deg, v.$color-carbon-900, v.$color-carbon-800);
+    background: radial-gradient(ellipse at 50% 30%, rgba(v.$terciario, 0.14), transparent 60%),
+      linear-gradient(160deg, v.$secundario, v.$color-carbon-800);
   }
 
   &__lista {
@@ -46,7 +46,7 @@
     p {
       margin-top: v.$espacio-2;
       color: v.$color-texto-invertido-tenue;
-      font-size: 0.92rem;
+      font-size: 2rem;
       line-height: 1.6;
     }
   }
@@ -55,7 +55,7 @@
     display: block;
     font-family: v.$fuente-titular;
     font-size: 2.5rem;
-    color: rgba(v.$color-hueso, 0.1);
+    color: rgba(v.$blanco, 0.1);
   }
 
   &__anio {

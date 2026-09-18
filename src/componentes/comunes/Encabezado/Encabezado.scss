@@ -1,5 +1,5 @@
-@use '../../../estilos/variables' as v;
-@use '../../../estilos/mixins' as m;
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
 
 .encabezado {
   position: fixed;
@@ -10,7 +10,7 @@
   transition: background-color v.$duracion-media v.$easing-salida, box-shadow v.$duracion-media v.$easing-salida;
 
   &--con-fondo {
-    background-color: rgba(v.$color-carbon-900, 0.92);
+    background-color: rgba(v.$secundario, 0.92);
     backdrop-filter: blur(10px);
     box-shadow: v.$sombra-suave;
 
@@ -23,8 +23,8 @@
   }
 
   &__franja {
-    background-color: v.$color-carbon-900;
-    max-height: 3rem;
+    background-color: v.$secundario;
+    max-height: 5rem;
     overflow: hidden;
     border-bottom: 1px solid v.$color-borde-oscuro;
     transition: max-height v.$duracion-media v.$easing-salida, opacity v.$duracion-media v.$easing-salida,
@@ -85,6 +85,10 @@
     flex-direction: column;
     line-height: 1;
     margin-inline-end: auto;
+    
+    img{
+     height: 5rem;
+    }
   }
 
   &__logo-marca {
@@ -148,6 +152,81 @@
     }
   }
 
+  // Desplegable "Servicios" (escritorio) ------------------------------------
+  &__item-servicios {
+    position: relative;
+  }
+
+  &__enlace--desplegable {
+    display: inline-flex;
+    align-items: center;
+    gap: v.$espacio-1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  &__flecha-desplegable {
+    transition: transform v.$duracion-rapida;
+  }
+
+  &__item-servicios--abierto &__flecha-desplegable {
+    transform: rotate(180deg);
+  }
+
+  &__submenu {
+    position: absolute;
+    top: calc(100% + v.$espacio-4);
+    left: 50%;
+    transform: translate(-50%, -0.5rem);
+    display: flex;
+    flex-direction: column;
+    min-width: 15rem;
+    padding: v.$espacio-2;
+    background-color: v.$secundario;
+    border: 1px solid v.$color-borde-oscuro;
+    border-radius: v.$radio-m;
+    box-shadow: v.$sombra-media;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity v.$duracion-rapida, transform v.$duracion-rapida, visibility v.$duracion-rapida;
+  }
+
+  &__item-servicios--abierto &__submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  &__submenu-enlace {
+    padding: v.$espacio-2 v.$espacio-3;
+    border-radius: v.$radio-s;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: v.$color-texto-invertido-tenue;
+    transition: background-color v.$duracion-rapida, color v.$duracion-rapida;
+
+    &:hover,
+    &:focus-visible {
+      background-color: rgba(v.$blanco, 0.08);
+      color: v.$color-texto-invertido;
+    }
+
+    &--todas {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: v.$espacio-2;
+      margin-top: v.$espacio-1;
+      padding-top: v.$espacio-3;
+      border-top: 1px solid v.$color-borde-oscuro;
+      color: v.$color-oro-300;
+    }
+  }
+
   &__acciones {
     display: flex;
     align-items: center;
@@ -175,7 +254,7 @@
   &__menu-movil {
     display: grid;
     grid-template-rows: 0fr;
-    background-color: v.$color-carbon-900;
+    background-color: v.$secundario;
     transition: grid-template-rows v.$duracion-media v.$easing-salida;
 
     @include m.desde(v.$quiebre-lg) {
@@ -203,5 +282,60 @@
     font-size: 1.05rem;
     font-weight: 600;
     border-bottom: 1px solid v.$color-borde-oscuro;
+  }
+
+  // Acordeón "Servicios" (móvil) ---------------------------------------------
+  &__item-servicios-movil {
+    border-bottom: 1px solid v.$color-borde-oscuro;
+  }
+
+  &__enlace-movil--desplegable {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-block: v.$espacio-3;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    border-bottom: none;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  &__submenu-movil {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows v.$duracion-media v.$easing-salida;
+
+    &--abierto {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__submenu-movil-interior {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  &__submenu-enlace-movil {
+    padding-block: v.$espacio-2;
+    padding-inline-start: v.$espacio-4;
+    font-size: 0.95rem;
+    color: v.$color-texto-invertido-tenue;
+
+    &--todas {
+      color: v.$color-oro-300;
+      font-weight: 600;
+      padding-top: v.$espacio-3;
+    }
+
+    &:last-child {
+      padding-bottom: v.$espacio-3;
+    }
   }
 }
